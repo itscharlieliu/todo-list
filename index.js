@@ -9,7 +9,12 @@ for (const todoList of todoLists) {
         itemElement.innerText = item;
         itemElement.className = "todoList__listItem";
 
-        itemsList.appendChild(itemElement);
+        itemElement.addEventListener("click", () => {
+            itemsList.removeChild(itemElement);
+        });
+
+        itemsList.prepend(itemElement);
+        itemsList.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     console.log(input);
